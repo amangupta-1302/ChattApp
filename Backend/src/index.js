@@ -6,11 +6,13 @@ import { connectDB } from './lib/database.js'
 import cookieParser from "cookie-parser"
 import cors from "cors"
 import { server, app } from "../src/lib/socket.js"
-
+import path from "path"
 dotenv.config()
 
 app.use(express.json())
 app.use(cookieParser())
+
+const __dirname = path.resolve()
 
 app.use(
     cors({
@@ -18,9 +20,14 @@ app.use(
         credentials: true,
     }));
 
-
 app.use("/api/auth", authRoutes)
 app.use("/api/message", messageRoutes)
+
+app.use(express.static(path.join(__dirname, "../Frontend/dist")))
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../Frontend", "dist", "index.html"))
+})
 
 server.listen(process.env.PORT, () => {
     console.log("Server running on", process.env.PORT)

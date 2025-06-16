@@ -1,0 +1,21 @@
+{
+  "name": "chattapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build" : "npm install --prefix Backend && npm install --prefix Frontend && npm run build --prefix Frontend  ", 
+    "start" :"npm run start --prefix Backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amangupta-1302/ChattApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amangupta-1302/ChattApp/issues"
+  },
+  "homepage": "https://github.com/amangupta-1302/ChattApp#readme"
+}
