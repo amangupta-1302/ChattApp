@@ -25,10 +25,10 @@ app.use("/api/message", messageRoutes)
 
 app.use(express.static(path.join(__dirname, "../Frontend/dist")))
 
-app.get("*", (_, res) => {
+
+app.get(/(.*)/, (_, res) => {
     res.sendFile(path.join(__dirname, "../Frontend", "dist", "index.html"))
 })
-
 server.listen(process.env.PORT, () => {
     console.log("Server running on", process.env.PORT)
     connectDB()

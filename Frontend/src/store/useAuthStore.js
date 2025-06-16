@@ -118,7 +118,6 @@ export const useAuthStore = create((set, get) => ({
         socket.off("getOnlineUsers")
         socket.on("getOnlineUsers", (userIds) => {
 
-            console.log("onlineuser now: ", userIds)
             set({ onlineUsers: userIds }) // map the user(online)  to online user array 
         })
     },
